@@ -1,9 +1,9 @@
-
+import '../App.css';
 
 const Nav = () => {
     return (
-        <nav>
-            <ul>
+        <nav classname="section">
+            <ul className="nav leadText">
                 <li><a href="#Home">Home</a></li>
                 <li><a href="#About">About</a></li>
                 <li><a href="#Menu">Menu</a></li>

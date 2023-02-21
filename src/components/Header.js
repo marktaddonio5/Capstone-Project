@@ -4,7 +4,7 @@ import Nav from "./Nav"
 
 const Header =  () => {
 return (
-    <header>
+    <header className="section header">
         <img src={Logo} alt="Logo"></img>
         <Nav />
     </header>
