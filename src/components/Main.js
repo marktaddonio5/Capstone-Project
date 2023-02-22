@@ -1,11 +1,8 @@
-
+import Hero from "../components/Hero"
 
 const Main = () => {
     return (
         <main className="section">
-            <section className="hero">
-            Hero
-            </section>
             <section className="highlights">
             Highlights
             </section>

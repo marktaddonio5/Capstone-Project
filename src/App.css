@@ -1,24 +1,51 @@
+/* Grid Containers */
 .container{
   display: grid;
-  grid-template-columns: repeat(12, minmax(60px, auto-fit));
-  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(12, minmax(50px, auto-fit));
+  grid-template-rows: repeat(8, auto-fit);
+  grid-auto-flow: row;
   justify-content: center;
-  align-items: stretch;
   margin-left: 60px;
   margin-right:60px;
   column-gap: 20px;
+  row-gap: 20px;
   justify-items: stretch;
+  justify-content: stretch;;
   
 }
+
+.hero {
+  background-color: #495E57;
+  grid-column-start: span 12;
+  height: fit-content;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(12, minmax(50px, auto-fit));
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+}
+
+
+.heroText {
+  grid-column-start: 3;
+  grid-column-end: 7;
+  overflow: visible;
+}
+
+
+
+/* Section Rules */
 
 .section{
   grid-column-start: span 12;
   display: inline-flex;
   flex-wrap: wrap;
   column-gap: 20px;
-  justify-content: center;
-  
+  justify-content: stretch;
+  align-content: center;
+  align-items: center;
 }
+
 .nav {
   display: inline-flex;
   gap: 10px;
@@ -27,6 +54,11 @@
   justify-content: center;
   align-items: center;
 }
+
+
+
+
+
 
 article > ul > li {
   list-style: none;
@@ -44,19 +76,16 @@ nav > ul > li {
   width: 100%;
 }
 
+/* Element Rules */
 
-
-
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+card {
+  display: block;
+  width: 315px;
+  height: 432px;
+  grid-column-start: auto;
+  grid-row-start: 2;
 }
+
 
 /* TYPOGRAPHY */
 .nav.leadText {
@@ -76,4 +105,57 @@ nav > ul > li {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
+}
+h1 {
+  font-family: 'Markazi Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 77px;
+}
+
+h2 {
+  font-family: 'Markazi Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+/* Image Rules */
+.chef {
+  object-fit: cover;
+  box-sizing: border-box;
+  width: 315px;
+  height: 418px;
+  max-width: 25vw;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  grid-column-start: 7;
+  grid-column-end: 10;
+  
+}
+
+.cardImage {
+  width: 315px;
+  object-fit: cover;
+}
+
+/* Button Rules */
+button {
+  background: #F4CE14;
+  border-radius: 15px;
+  width: 207px;
+  height: 72px;
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+  text-align: center;
+}
+.menuButton{
+  grid-row-start: 1;
+  grid-column-start: 9;
 }
