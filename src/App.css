@@ -10,7 +10,7 @@
   column-gap: 20px;
   row-gap: 20px;
   justify-items: stretch;
-  justify-content: stretch;;
+  justify-content: stretch;
   
 }
 
@@ -25,6 +25,24 @@
   grid-auto-flow: column;
 }
 
+.highlights {
+  grid-column-start: span 12;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(12, minmax(50px, auto-fit));
+  grid-template-rows: auto auto;
+}
+
+.highlights1 {
+  grid-column-start: span 12;
+  grid-row-start: 1;
+  display: flex;
+}
+.card {
+  grid-column-start: span 12;
+  grid-row-start: 2;
+  display: flex;
+}
 
 .heroText {
   grid-column-start: 3;
@@ -41,7 +59,7 @@
   display: inline-flex;
   flex-wrap: wrap;
   column-gap: 20px;
-  justify-content: stretch;
+  justify-content: center;
   align-content: center;
   align-items: center;
 }
@@ -74,16 +92,17 @@ nav > ul > li {
   justify-content: center;
   column-gap: 20px;
   width: 100%;
-}
+}3
 
 /* Element Rules */
 
 card {
   display: block;
   width: 315px;
+  max-width: 30vw;
   height: 432px;
-  grid-column-start: auto;
-  grid-row-start: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
 
 
@@ -138,6 +157,7 @@ h2 {
 
 .cardImage {
   width: 315px;
+  max-width: 30vw;
   object-fit: cover;
 }
 
@@ -155,7 +175,4 @@ button {
   align-items: center;
   text-align: center;
 }
-.menuButton{
-  grid-row-start: 1;
-  grid-column-start: 9;
-}
+
