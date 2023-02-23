@@ -1,27 +1,27 @@
 import Salad from "../assets/greek salad.jpg"
-/*
-import Bruschetta from "../assets/bruschetta.svg"
-import Dessert from "../assets/lemon dessert.svg"
+import Lemon from "../assets/lemon dessert.jpg"
+import Bru from "../assets/bruchetta.svg"
+
 
 const menuItems = [
     {
-        imgSrc: {Salad},
+        imgSrc: require("../assets/greek salad.jpg"),
         title: "Greek Salad",
         price: "$12",
         description: "A greek salad with fresh vegetables",
     },
     {
-        imgSrc: {Bruschetta},
+        imgSrc: require("../assets/greek salad.jpg"),
         title: "Bruschetta",
         price: "$10",
         description: "Fresh bruschetta",
     },
     {
-        imgSrc: {Dessert},
+        imgSrc: require("../assets/lemon dessert.jpg"),
         title: "Lemon Dessert",
         price: "$9",
         description: "A fresh lemon dessert",
-    }
+    },
 ]
 
 const Cards = menuItems.map(menuItems => {
@@ -34,33 +34,15 @@ const Cards = menuItems.map(menuItems => {
         </card>
 )})
     
-*/
+
+
 const Highlight = () => {
     return (
-        <section className="section">
-            <div className="highlights1">
-            <h1>This Week's Specials</h1>
+        <section className="highlights">
+            <h1 className="HLh1">This Week's Specials</h1>
             <button className="menuButton">Online Menu</button>
-            </div>
-            <div className="card">
-            <card>
-                <img src={Salad} className="cardImage"></img>
-                <h3>Greek Salad</h3>
-                <h4>$12</h4>
-                <p>A greek salad with fresh vegetables</p>
-            </card>
-            <card>
-                <img src={Salad} className="cardImage"></img>
-                <h3>Greek Salad</h3>
-                <h4>$12</h4>
-                <p>A greek salad with fresh vegetables</p>
-            </card>
-            <card>
-                <img src={Salad} className="cardImage"></img>
-                <h3>Greek Salad</h3>
-                <h4>$12</h4>
-                <p>A greek salad with fresh vegetables</p>
-            </card>
+            <div className="section">
+            {Cards}
             </div>
         </section>
     )
