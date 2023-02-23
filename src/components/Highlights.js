@@ -18,7 +18,7 @@ const menuItems = [
     },
     {
         imgSrc: require("../assets/lemon dessert.jpg"),
-        title: "Lemon Dessert",
+        title: "Lemon Cake",
         price: "$9",
         description: "A fresh lemon dessert",
     },
@@ -26,7 +26,7 @@ const menuItems = [
 
 const Cards = menuItems.map(menuItems => {
     return (
-        <card>
+        <card className="cardHighlight">
             <img src={menuItems.imgSrc} className="cardImage"></img>
             <h3>{menuItems.title}</h3>
             <h4>{menuItems.price}</h4>
@@ -39,7 +39,7 @@ const Cards = menuItems.map(menuItems => {
 const Highlight = () => {
     return (
         <section className="highlights">
-            <h1 className="HLh1">This Week's Specials</h1>
+            <h1 className="HLh1">Weekly Specials</h1>
             <button className="menuButton">Online Menu</button>
             <div className="section">
             {Cards}

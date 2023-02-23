@@ -4,6 +4,7 @@ import  Main from "./components/Main"
 import Footer from "./components/Footer.js"
 import Hero from "./components/Hero"
 import Highlight from "./components/Highlights"
+import Testimonials from "./components/Testimonials"
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Hero />
       <Highlight />
+      <Testimonials />
       <Main />
       <Footer />
     </div>
