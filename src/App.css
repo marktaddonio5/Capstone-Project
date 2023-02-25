@@ -5,8 +5,6 @@
   grid-template-rows: repeat(12, auto-fit);
   grid-auto-flow: row;
   justify-content: center;
-  margin-left: 2vw;
-  margin-right:2vw;
   column-gap: 2vw;
   row-gap: 2vw;
   justify-items: stretch;
@@ -73,6 +71,21 @@
   align-items: center;
 }
 
+.sectionGrid {
+  grid-column-start: span 12;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: inherit;
+  grid-template-rows: inherit;
+  overflow:visible;
+
+}
+
+.aboutText {
+  grid-column-start: 3;
+  grid-column-end: 8;
+}
+
 .green{
   background-color: #495E57;
 }
@@ -86,15 +99,20 @@
   align-items: center;
 }
 
-.footer{
-  display: grid;
-  grid-template-columns: repeat(12, auto);
+.booking {
+  display: flex;
   justify-content: center;
-  column-gap: 20px;
-  width: 100%;
+}
+.bookingForm {
+  display: grid; 
+  width: 50vw;
+  max-width: 70vw; 
+  gap: 20px;
+
 }
 
 /* Element Rules */
+
 
 .cardHighlight {
   display: block;
@@ -107,6 +125,7 @@
   background-color: #D9D9D9;
   padding: 1vw;
 }
+
 .cardTestimonial {
   grid-column-start: span 2;
   display: block;
@@ -198,18 +217,21 @@ p {
 /* Image Rules */
 .chef {
   object-fit: cover;
-
   width: 315px;
   height: 418px;
   max-width: 30vw;
   max-height: 45vw;
   border: 1px solid #000000;
   border-radius: 20px;
-  grid-column-start: 10;
+  grid-column-start: 9;
   grid-column-end: 12;
   grid-row-start: 1;
   align-self: center;
   
+}
+
+.logo {
+  width: 25vw;;
 }
 
 .cardImage {
@@ -233,8 +255,7 @@ button {
   font-family: 'Karla';
   font-style: normal;
   font-weight: 800;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 2vh;
   align-items: center;
   text-align: center;
   max-width: 30vw;

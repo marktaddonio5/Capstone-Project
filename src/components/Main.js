@@ -1,18 +1,21 @@
 import Hero from "../components/Hero"
+import {Routes, Route} from 'react-router-dom'
+import Homepage from "./Homepage"
+import BookingPage from "./BookingPage"
+import About from "./About"
+
 
 const Main = () => {
     return (
-        <main className="section">
-            <section className="highlights">
-            Highlights
-            </section>
-            <section className="testimonials">
-            Testimonials
-            </section>
-            <section className="about">
-            About
-            </section>
-        </main>
+        <Routes>
+            <Route path="/" element={<Homepage />}></Route>
+            <Route path="/booking" element={<BookingPage />}></Route>
+            <Route path="/about" element={
+                <div className="container">
+                    <About />
+                </div>
+            }></Route>
+        </Routes>  
     )
 }
 

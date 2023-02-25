@@ -1,22 +1,19 @@
-
-import Header from "./components/Header"
-import  Main from "./components/Main"
-import Footer from "./components/Footer.js"
-import Hero from "./components/Hero"
-import Highlight from "./components/Highlights"
-import Testimonials from "./components/Testimonials"
+import Main from "./components/Main";
+import Homepage from "./components/Homepage"
 import './App.css';
+import BookingPage from "./components/BookingPage";
+import Header from "./components/Header";
+
 
 function App() {
   return (
-    <div className="container">
-      <Header />
-      <Hero />
-      <Highlight />
-      <Testimonials />
-      <Main />
-      <Footer />
-    </div>
+    <>
+    <Header />
+    <Main>
+      <Homepage />
+      <BookingPage />
+    </Main>
+    </>
   );
 }
 
