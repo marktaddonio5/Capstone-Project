@@ -10,8 +10,6 @@ function App() {
     <>
     <Header />
     <Main>
-      <Homepage />
-      <BookingPage />
     </Main>
     </>
   );
