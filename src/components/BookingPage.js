@@ -2,14 +2,14 @@ import BookingForm from "./BookingForm";
 import React, {useState} from "react";
 
 
-const BookingPage = ({availableTimes}) => {
+const BookingPage = ({state}) => {
     const BookingFormContents = () => {
         const [date, setDate] = useState();
         const [guests, setGuests] = useState(2);
         const [occasion, setOccassion] = useState();
         const [time, setTime] = useState();
 
-        const timeOptions = availableTimes.map(times => {
+        const timeOptions = state.map(times => {
          return (
              <option>{times.time}</option>
         )})
@@ -67,7 +67,7 @@ const BookingPage = ({availableTimes}) => {
         <>
         <h2 className="booking">Book a table</h2>
         <div className="booking">
-            <BookingForm availableTimes={availableTimes} />
+            <BookingForm state={state} />
         </div>
         </>
     )
