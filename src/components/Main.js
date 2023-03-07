@@ -6,8 +6,9 @@ import About from "./About"
 import {useReducer} from "react"
 import React, {useState} from 'react'
 
-const reducer = (state, action) => {
-    if (action === 'date_changed') return [...state]
+const reducer = (availableTimes, action) => {
+    if (action) return [...availableTimes, {time: "14:00"}];
+   
 }
 
 const initialTimes = [
@@ -21,7 +22,7 @@ const initialTimes = [
 
 
 const Main = () => {
-    const [state, dispatch] = useReducer(reducer, initialTimes);
+    const [availableTimes, dispatch] = useReducer(reducer, initialTimes);
     
     return (
         <Routes>
@@ -31,7 +32,8 @@ const Main = () => {
             </Route>
             <Route 
                 path="/booking" 
-                element={<BookingPage state={state} />}
+                element={<BookingPage availableTimes={availableTimes}
+                dispatch={dispatch} />}
             >
             </Route>
             <Route 

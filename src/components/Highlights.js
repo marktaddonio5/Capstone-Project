@@ -24,9 +24,9 @@ const menuItems = [
     },
 ]
 
-const Cards = menuItems.map(menuItems => {
+const cards = menuItems.map(menuItems => {
     return (
-        <card className="cardHighlight">
+        <card className="cardHighlight" key={menuItems.title}>
             <img src={menuItems.imgSrc} className="cardImage"></img>
             <h3>{menuItems.title}</h3>
             <h4>{menuItems.price}</h4>
@@ -42,7 +42,7 @@ const Highlight = () => {
             <h1 className="HLh1">Weekly Specials</h1>
             <button className="menuButton">Online Menu</button>
             <div className="section">
-            {Cards}
+            {cards}
             </div>
         </section>
     )

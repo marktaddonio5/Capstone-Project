@@ -9,26 +9,26 @@ const testimonials = [
     {
         rating: "4 Stars",
         imgSrc: require("../assets/greek salad.jpg"),
-        name: "Mark",
+        name: "Andrew",
         reviewText: "It was really good",
     },
     {
         rating: "4 Stars",
         imgSrc: require("../assets/greek salad.jpg"),
-        name: "Mark",
+        name: "Susan",
         reviewText: "It was really good",
     },
     {
         rating: "4 Stars",
         imgSrc: require("../assets/greek salad.jpg"),
-        name: "Mark",
+        name: "Katie",
         reviewText: "It was really good",
     },
 ]
 
 const testimonialCards = testimonials.map(testimonials =>{
     return (
-        <card className="cardTestimonial">
+        <card className="cardTestimonial" key={testimonials.name}>
             <p>{testimonials.rating}</p>
             <img className="testimonialImg" src={testimonials.imgSrc}></img>
             <p>{testimonials.name}</p>
