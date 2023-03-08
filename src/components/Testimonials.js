@@ -39,7 +39,7 @@ const testimonialCards = testimonials.map(testimonials =>{
 
 const Testimonials = () => {
     return (
-        <section className="section green">
+        <section className="section green white">
             {testimonialCards}
         </section>
     )

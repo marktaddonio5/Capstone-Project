@@ -112,8 +112,6 @@
 }
 
 /* Element Rules */
-
-
 .cardHighlight {
   display: block;
   width: 315px;
@@ -133,7 +131,6 @@
   max-width: 25vw;
 }
 
-
 article > ul > li {
   list-style: none;
 }
@@ -141,12 +138,7 @@ article > ul > li {
 a {
   list-style: none;
   text-decoration: none;
-  
 }
-
-
-
-
 
 /* TYPOGRAPHY */
 h1 {
@@ -245,6 +237,12 @@ p {
   width: inherit;
 }
 
+.yellow {
+  color: #F4CE14;
+}
+.white {
+  color: #FFFFFF;
+}
 
 /* Button Rules */
 button {

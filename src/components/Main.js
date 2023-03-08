@@ -1,14 +1,14 @@
 
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import Homepage from "./Homepage"
 import BookingPage from "./BookingPage"
 import About from "./About"
 import {useReducer} from "react"
-import React, {useState} from 'react'
+
 
 const reducer = (availableTimes, action) => {
-    if (action) return [...availableTimes, {time: "14:00"}];
-   
+    if (action.type==="add") return [...availableTimes, {time: "23:00"}];
+    if (action.type === "clear" ) return initialTimes;
 }
 
 const initialTimes = [
@@ -39,7 +39,7 @@ const Main = () => {
             <Route 
                 path="/about" 
                 element={<div className="container"><About /></div>}></Route>
-        </Routes>  
+        </Routes> 
     )
 };
 

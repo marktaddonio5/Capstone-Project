@@ -1,8 +1,8 @@
 
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 const BookingFormContents = ({availableTimes, dispatch}) => {
-    const [date, setDate] = useState();
+    const [date, setDate] = useState('');
     const [guests, setGuests] = useState(2);
     const [occasion, setOccassion] = useState('');
     const [time, setTime] = useState('');
@@ -14,11 +14,16 @@ const BookingFormContents = ({availableTimes, dispatch}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setDate('');
+        setGuests(2);
+        setOccassion('');
+        dispatch({type: "clear"})
+
     };
 
     const DateChange = (e) => {
         setDate(e.target.value);
-        dispatch({});
+        dispatch({type: "add"});
     };
    
 
@@ -28,11 +33,12 @@ const BookingFormContents = ({availableTimes, dispatch}) => {
             <input 
                 type="date" 
                 id="res-date" 
+                data-testid="res-date"
                 value={date}
                 onChange={DateChange}></input>
             <label htmlFor="res-time">Choose a time</label>
-            <h3>{date}</h3>
             <select 
+                data-testid="res-time"
                 id="res-time" 
                 value={time}
                 onChange={e => setTime(e.target.value)}>
@@ -61,7 +67,6 @@ const BookingFormContents = ({availableTimes, dispatch}) => {
         </form>
     )
 };
-
 
 const BookingPage = ({availableTimes, dispatch}) => {
     return (
