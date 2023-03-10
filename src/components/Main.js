@@ -1,29 +1,62 @@
 
-import {Routes, Route, BrowserRouter} from 'react-router-dom'
+import {Routes, Route, useNavigate} from "react-router-dom"
 import Homepage from "./Homepage"
 import BookingPage from "./BookingPage"
 import About from "./About"
 import {useReducer} from "react"
+import { useEffect } from 'react'
+import BookingConfirmation from "./BookingConfirmation"
+import { useState } from "react"
 
+const seededRandom = function (seed) {
+    var m = 2**35 - 31;
+    var a = 185852;
+    var s = seed % m;
+    return function () {
+        return (s = s * a % m) / m;
+    };
+}
 
-const reducer = (availableTimes, action) => {
-    if (action.type==="add") return [...availableTimes, {time: "23:00"}];
+const fetchAPI = function(date) {
+    let result = [];
+    let random = seededRandom(date.getDate());
+
+    for(let i = 17; i <= 23; i++) {
+        if(random() < 0.5) {
+            result.push(i + ':00');
+        }
+        if(random() < 0.5) {
+            result.push(i + ':30');
+        }
+    }
+    return result;
+};
+
+const submitAPI = function(formData) {
+    return true;
+};
+
+const d = new Date();
+
+const initialTimes = fetchAPI(d)
+
+const setAvailableTimes = (availableTimes, action) => {
+    if (action.type === "add") return (
+        fetchAPI(new Date(action.date))
+    )
     if (action.type === "clear" ) return initialTimes;
 }
 
-const initialTimes = [
-    {time: "17:00"},
-    {time: "18:00"},
-    {time: "19:00"},
-    {time: "20:00"},
-    {time: "21:00"},
-    {time: "22:00"},
-];
-
-
 const Main = () => {
-    const [availableTimes, dispatch] = useReducer(reducer, initialTimes);
-    
+    const [availableTimes, dispatch] = useReducer(setAvailableTimes, initialTimes);
+
+    const navigate = useNavigate()
+
+    function submitForm(data) {
+        if (submitAPI(data) === true) navigate('/bookingConfirmed')
+        
+    }
+
     return (
         <Routes>
             <Route 
@@ -33,8 +66,13 @@ const Main = () => {
             <Route 
                 path="/booking" 
                 element={<BookingPage availableTimes={availableTimes}
-                dispatch={dispatch} />}
+                dispatch={dispatch}
+                submitForm={submitForm} />}
             >
+            </Route>
+            <Route
+                path="/bookingConfirmed"
+                element ={<BookingConfirmation/>}>
             </Route>
             <Route 
                 path="/about" 

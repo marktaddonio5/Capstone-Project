@@ -1,7 +1,8 @@
 
 import React, {useState} from "react";
 
-const BookingFormContents = ({availableTimes, dispatch}) => {
+
+const BookingFormContents = ({availableTimes, dispatch, submitForm}) => {
     const [date, setDate] = useState('');
     const [guests, setGuests] = useState(2);
     const [occasion, setOccassion] = useState('');
@@ -9,21 +10,17 @@ const BookingFormContents = ({availableTimes, dispatch}) => {
 
     const timeOptions = availableTimes.map(times => {
      return (
-        <option key={times.time}>{times.time}</option>
+        <option key={times}>{times}</option>
     )});
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setDate('');
-        setGuests(2);
-        setOccassion('');
-        dispatch({type: "clear"})
-
+        return submitForm(e.target.value)
     };
 
-    const DateChange = (e) => {
+    const dateChange = (e) => {
         setDate(e.target.value);
-        dispatch({type: "add"});
+        dispatch({type: "add", date: e.target.value});
     };
    
 
@@ -35,7 +32,7 @@ const BookingFormContents = ({availableTimes, dispatch}) => {
                 id="res-date" 
                 data-testid="res-date"
                 value={date}
-                onChange={DateChange}></input>
+                onChange={dateChange}></input>
             <label htmlFor="res-time">Choose a time</label>
             <select 
                 data-testid="res-time"
@@ -68,12 +65,15 @@ const BookingFormContents = ({availableTimes, dispatch}) => {
     )
 };
 
-const BookingPage = ({availableTimes, dispatch}) => {
+const BookingPage = ({availableTimes, dispatch, submitForm}) => {
     return (
         <>
         <h2 className="booking">Book a table</h2>
         <div className="booking">
-            <BookingFormContents availableTimes={availableTimes} dispatch={dispatch} />
+            <BookingFormContents 
+            availableTimes={availableTimes}
+            dispatch={dispatch}
+            submitForm={submitForm}  />
         </div>
         </>
     )
