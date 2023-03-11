@@ -76,3 +76,49 @@ test('Available times added time when date is changed', () => {
 
   expect(addedTime).toBeInTheDocument()
 });
+
+test('App navigates to confirmation page on successfull booking', () => {
+  
+  render(
+    <Router>
+      <Main />
+    </Router>
+  );
+
+  const button = screen.getByText("Reserve a Table")
+  fireEvent.click(button);
+ 
+  const dateInput = screen.getByTestId("res-date");
+  const submitbutton = screen.getByText("Make your reservation")
+  
+  const d = new Date()
+  
+  fireEvent.change(dateInput, {
+    target: { value: d }
+  });
+
+  fireEvent.click(submitbutton)
+
+  const confirmation = screen.getByText("Table reservation is confirmed")
+  expect(confirmation).toBeInTheDocument
+});
+
+test('App does not navigate to confirmation page if date field is empty', () => {
+  
+  render(
+    <Router>
+      <Main />
+    </Router>
+  );
+
+  const button = screen.getByText("Reserve a Table")
+  fireEvent.click(button);
+ 
+  const dateInput = screen.getByTestId("res-date");
+  const submitbutton = screen.getByText("Make your reservation")
+
+  fireEvent.click(submitbutton)
+
+  const confirmation = screen.getByText("Table reservation is confirmed")
+  expect(confirmation).toNotBeInTheDocument
+});

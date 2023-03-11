@@ -91,8 +91,10 @@
 }
 
 .nav {
+  grid-column-start:2;
+  grid-column-end:10;
   display: inline-flex;
-  gap: 6vw;
+  gap: 7vw;
   list-style: none;
   flex-wrap: wrap;
   justify-content: center;
@@ -204,6 +206,11 @@ p {
   font-size: 16px;
   line-height: 19px;
 }
+
+input:invalid {
+  border: 2px dashed red;
+}
+
 
 
 /* Image Rules */

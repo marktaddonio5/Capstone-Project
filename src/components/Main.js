@@ -4,9 +4,8 @@ import Homepage from "./Homepage"
 import BookingPage from "./BookingPage"
 import About from "./About"
 import {useReducer} from "react"
-import { useEffect } from 'react'
 import BookingConfirmation from "./BookingConfirmation"
-import { useState } from "react"
+
 
 const seededRandom = function (seed) {
     var m = 2**35 - 31;
@@ -54,7 +53,7 @@ const Main = () => {
 
     function submitForm(data) {
         if (submitAPI(data) === true) navigate('/bookingConfirmed')
-        
+        console.log(data)
     }
 
     return (

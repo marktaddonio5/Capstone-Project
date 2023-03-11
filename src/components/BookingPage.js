@@ -1,12 +1,11 @@
 
 import React, {useState} from "react";
 
-
 const BookingFormContents = ({availableTimes, dispatch, submitForm}) => {
     const [date, setDate] = useState('');
-    const [guests, setGuests] = useState(2);
+    const [guests, setGuests] = useState('');
     const [occasion, setOccassion] = useState('');
-    const [time, setTime] = useState('');
+    const [time, setTime] = useState();
 
     const timeOptions = availableTimes.map(times => {
      return (
@@ -32,10 +31,13 @@ const BookingFormContents = ({availableTimes, dispatch, submitForm}) => {
                 id="res-date" 
                 data-testid="res-date"
                 value={date}
-                onChange={dateChange}></input>
+                onChange={dateChange}
+                required
+                ></input>
             <label htmlFor="res-time">Choose a time</label>
             <select 
                 data-testid="res-time"
+                placeholder="00:00"
                 id="res-time" 
                 value={time}
                 onChange={e => setTime(e.target.value)}>
@@ -44,7 +46,7 @@ const BookingFormContents = ({availableTimes, dispatch, submitForm}) => {
             <label htmlFor="guests">Number of guests</label>
             <input 
                 type="number"
-                placeholder="1" 
+                placeholder="1-10" 
                 min="1" 
                 max="10" 
                 id="guests"

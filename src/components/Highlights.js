@@ -1,6 +1,4 @@
-import Salad from "../assets/greek salad.jpg"
-import Lemon from "../assets/lemon dessert.jpg"
-import Bru from "../assets/bruchetta.svg"
+
 
 
 const menuItems = [
@@ -26,12 +24,12 @@ const menuItems = [
 
 const cards = menuItems.map(menuItems => {
     return (
-        <card className="cardHighlight" key={menuItems.title}>
+        <article className="cardHighlight" key={menuItems.title}>
             <img src={menuItems.imgSrc} className="cardImage"></img>
             <h3>{menuItems.title}</h3>
             <h4>{menuItems.price}</h4>
             <p>{menuItems.description}</p>
-        </card>
+        </article>
 )})
     
 

@@ -28,12 +28,12 @@ const testimonials = [
 
 const testimonialCards = testimonials.map(testimonials =>{
     return (
-        <card className="cardTestimonial" key={testimonials.name}>
+        <article className="cardTestimonial" key={testimonials.name}>
             <p>{testimonials.rating}</p>
             <img className="testimonialImg" src={testimonials.imgSrc}></img>
             <p>{testimonials.name}</p>
             <p>{testimonials.reviewText}</p>
-        </card>
+        </article>
     )
 })
 
